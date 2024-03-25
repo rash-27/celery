@@ -1,7 +1,10 @@
 version: '3.8'
 
 
-sevice:
+services:
+  redis:
+    container_name: redis
+    image: redis:7.0.11-alpine
 
   django:
     container_name: django
@@ -16,3 +19,5 @@ sevice:
       - DEBUG=1
       - SECRET_KEY=0930jd30j9jd09j0fj9f
       - ALLOWED_HOSTS=localhost,127.0.0.1
+    depends_on:
+      - redis
